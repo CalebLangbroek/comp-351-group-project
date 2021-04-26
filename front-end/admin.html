@@ -1,0 +1,61 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <title>Never Note Admin</title>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper container">
+                <a href="./index.html" class="brand-logo">Never Note</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="./notes.html">Notes</a></li>
+                    <li class="active"><a href="./admin.html">Admin</a></li>
+                    <li><a href="./API/V1/index.html">API</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <h2 class="header col s12">Admin</h2>
+            </div>
+
+            <div class="preloader-wrapper active" id="loading-spinner">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <table id="table" class="highlight" hidden>
+                <thead>
+                    <tr>
+                        <th>End Point</th>
+                        <th>Method</th>
+                        <th>Requests</th>
+                    </tr>
+                </thead>
+
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="module" src="./js/admin.js"></script>
+    </body>
+</html>
