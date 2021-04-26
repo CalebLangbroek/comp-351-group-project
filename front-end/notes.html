@@ -19,9 +19,10 @@
         <nav>
             <div class="nav-wrapper container">
                 <a href="./index.html" class="brand-logo">Never Note</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul class="right hide-on-med-and-down">
                     <li class="active"><a href="./notes.html">Notes</a></li>
                     <li><a href="./admin.html">Admin</a></li>
+                    <li><a href="./API/V1/index.html">API</a></li>
                 </ul>
             </div>
         </nav>
@@ -30,7 +31,7 @@
                 <h2 class="header col s12 m10">Notes</h2>
                 <div class="col s12 m2">
                     <a
-                        data-target="new-note-modal"
+                        data-target="note-new-modal"
                         class="waves-effect waves-light btn blue modal-trigger"
                     >
                         <i class="material-icons left">add</i>Add
@@ -52,11 +53,21 @@
             </div>
             <div id="notes"></div>
         </div>
-        <div id="new-note-modal" class="modal">
+
+        <!-- New Note Modal -->
+
+        <div id="note-new-modal" class="modal">
             <div class="modal-content">
                 <div class="row">
                     <div class="col s12">
                         <h4>New Note</h4>
+                    </div>
+                </div>
+                <div class="row" id="note-new-alert" style="display: none">
+                    <div class="col s12">
+                        <div class="card-panel red darken-4 white-text">
+                            Title and body can't be empty
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -76,18 +87,79 @@
                                 <label for="note-new-body">Body</label>
                             </div>
                         </div>
-                        <button class="btn waves-effect waves-light">
-                            <i class="material-icons">check</i>Create
-                        </button>
+                        <a
+                            type="button"
+                            class="btn waves-effect waves-light"
+                            id="note-new-submit"
+                        >
+                            <i class="material-icons left">check</i>Create
+                        </a>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <a class="modal-close waves-effect waves-green btn-flat"
+                <a
+                    type="button"
+                    class="modal-close waves-effect waves-green btn-flat"
                     >Cancel</a
                 >
             </div>
         </div>
+
+        <!-- Edit Note Modal -->
+
+        <div id="note-edit-modal" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s12">
+                        <h4>Edit Note</h4>
+                    </div>
+                </div>
+                <div class="row" id="note-edit-alert" style="display: none">
+                    <div class="col s12">
+                        <div class="card-panel red darken-4 white-text">
+                            Title and body can't be empty
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="note-edit-title" type="text" />
+                                <label for="note-edit-title">Title</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea
+                                    id="note-edit-body"
+                                    class="materialize-textarea"
+                                ></textarea>
+                                <label for="note-edit-body">Body</label>
+                            </div>
+                        </div>
+                        <a
+                            type="button"
+                            class="btn waves-effect waves-light"
+                            id="note-edit-submit"
+                        >
+                            <i class="material-icons left">check</i>Save
+                        </a>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a
+                    type="button"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    >Cancel</a
+                >
+            </div>
+        </div>
+
+        <!-- Script -->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script type="module" src="./js/notes.js"></script>
     </body>
